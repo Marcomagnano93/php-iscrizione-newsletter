@@ -2,15 +2,8 @@
 
 $usermail = $_POST['newsletter'] ?? '';
 
-var_dump($usermail);
-function emailcheck($mail){
-    if(str_contains($mail, '@') && str_contains($mail, '.')){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
+// var_dump($usermail);
+include __DIR__ . '../utilities.php';
 ?>
 
 
