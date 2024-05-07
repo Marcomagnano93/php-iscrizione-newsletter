@@ -1,3 +1,19 @@
+<?php 
+
+$usermail = $_POST['newsletter'] ?? '';
+
+var_dump($usermail);
+function emailcheck($mail){
+    if(str_contains($mail, '@') && str_contains($mail, '.')){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +28,7 @@
         <div class="container my-4">
             <div class="row">
                 <div class="col">
-                    <form action="">
+                    <form action="" method="post">
                         <p>
                             <input type="email" name="newsletter" id="newsletter" placeholder="Scrivi qui la tua mail">
                         </p>
@@ -23,6 +39,40 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <?php 
+                if(emailcheck($usermail) === true){
+
+                    ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Congratulazioni... </strong> <span>Ti sei iscritto alla nostra newsletter con successo!</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+
+                }
+                elseif($usermail === ''){
+            ?>
+
+                    <div class="alert alert-primary" role="alert">
+                        <p>Benvenuto! inserisci una mail valida per iscriverti alla nostra newsletter!</p>
+                    </div>
+
+            <?php
+                }
+                else{
+            ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Attenzione!!! </strong> <span>La mail inserita non è corretta.</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+
+                }
+            ?>
+        </div>
+        
+
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
