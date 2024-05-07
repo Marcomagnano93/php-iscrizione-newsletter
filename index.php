@@ -29,7 +29,7 @@ include __DIR__ . '../utilities.php';
                             <input type="email" name="newsletter" id="newsletter" placeholder="Scrivi qui la tua mail">
                         </p>
                         <p>
-                        <button type="button" class="btn btn-primary">Iscriviti</button>
+                        <button type="submit" class="btn btn-primary">Iscriviti</button>
                         </p>
                     </form>
                 </div>
