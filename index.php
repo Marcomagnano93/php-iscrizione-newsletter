@@ -17,6 +17,9 @@ include __DIR__ . '../utilities.php';
 
 </head>
 <body>
+<?php 
+    include __DIR__ . '../header.php';
+?>
     <main>
         <div class="container my-4">
             <div class="row">
