@@ -17,9 +17,7 @@ include __DIR__ . '../utilities.php';
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<?php 
-    include __DIR__ . '../header.php';
-?>
+<?php include __DIR__ . '/header.php'; ?>
     <main>
         <div class="container my-5">
             <div class="row">
@@ -29,7 +27,7 @@ include __DIR__ . '../utilities.php';
                             <input type="email" name="newsletter" id="newsletter" placeholder="Scrivi qui la tua mail">
                         </p>
                         <p>
-                        <button type="submit" class="btn btn-primary">Iscriviti</button>
+                            <button type="submit" class="btn btn-primary">Iscriviti</button>
                         </p>
                     </form>
                 </div>
@@ -38,39 +36,29 @@ include __DIR__ . '../utilities.php';
         <div class="container">
             <?php 
                 if(emailcheck($usermail) === true){
-
-                    ?>
+                    $_SESSION['subrscibe'] = true;
+            ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>Congratulazioni... </strong> <span>Ti sei iscritto alla nostra newsletter con successo!</span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            <?php
-
-                }
-                elseif($usermail === ''){
-            ?>
+            <?php } elseif($usermail === ''){  ?>
 
                     <div class="alert alert-primary" role="alert">
                         <p>Benvenuto! inserisci una mail valida per iscriverti alla nostra newsletter!</p>
                     </div>
 
-            <?php
-                }
-                else{
-            ?>
+            <?php } else{ ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Attenzione!!! </strong> <span>La mail inserita non è corretta.</span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            <?php
 
-                }
-            ?>
+            <?php } ?>
+            
         </div>
     </main>
-<?php 
-    include __DIR__ . '../footer.php';
-?>
+<?php include __DIR__ . '../footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
